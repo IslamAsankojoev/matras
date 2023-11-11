@@ -1,10 +1,11 @@
 import Image from 'next/image'
-import { Montserrat } from 'next/font/google'
+import { Montserrat, Alumni_Sans } from 'next/font/google'
 import { Button, Col, Grid, Row, Space } from 'antd'
 import React from 'react'
 
 const whatsapp = 'https://wa.me/+996555555779'
 const montserrat = Montserrat({ subsets: ['latin'] })
+const alumniSans = Alumni_Sans({ subsets: ['latin'] })
 
 const Container = ({ children }: { children: any }) => (
   <div
@@ -12,7 +13,7 @@ const Container = ({ children }: { children: any }) => (
       maxWidth: '1200px',
       margin: '0 auto',
       width: '100%',
-      padding: '0 15px',
+      padding: '0 20px',
     }}
   >
     {children}
@@ -42,9 +43,10 @@ export default function Home() {
           backgroundRepeat: 'no-repeat',
           display: 'flex',
           justifyContent: 'center',
-          padding: '0 10%',
+          // padding: '0 10%',
           flexDirection: 'column',
           zIndex: 10,
+          width: '100%',
         }}
       >
         <section
@@ -57,18 +59,26 @@ export default function Home() {
         >
           <Container>
             <div className="flex justify-between w-full">
+              <h1 className={`${alumniSans.className} text-4xl text-white font-extrabold`}>
+                UZGEN SPORT
+              </h1>
               <div className="flex items-center justify-center">
-                <Image src="/vercel.svg" width={100} height={100} alt="logo" className="invert" />
-              </div>
-              <div className="flex items-center justify-center">
-                <Button href={whatsapp} target='_blank' type="primary" size="middle" className="bg-blue-600">
+                <Button
+                  href={whatsapp}
+                  target="_blank"
+                  type="primary"
+                  size="middle"
+                  className="bg-blue-600"
+                >
                   Свяжитесь с нами
                 </Button>
               </div>
             </div>
           </Container>
         </section>
-        <Row>
+        <Container>
+        <Row
+        >
           <Col md={12} sm={24}>
             <Space size="large" direction="vertical">
               <h2 className={`${montserrat.className} text-xl md:text-3xl text-white`}>
@@ -80,13 +90,20 @@ export default function Home() {
                 безопасность во время тренировок. Мы гордимся предоставлением продукции высокого
                 качества по доступным ценам.
               </p>
-              <Button href={whatsapp} target='_blank' type="primary" size="large" className="bg-blue-600">
+              <Button
+                href={whatsapp}
+                target="_blank"
+                type="primary"
+                size="large"
+                className="bg-blue-600"
+              >
                 Свяжитесь с нами
               </Button>
             </Space>
           </Col>
           <Col md={12} sm={24}></Col>
         </Row>
+        </Container>
       </div>
 
       {/* block1 */}
@@ -119,7 +136,7 @@ export default function Home() {
 
       <section id="our-prems" className="w-full p-10 bg-gray-800">
         <Container>
-          <Row className='gap-8 md:gap-0'>
+          <Row className="gap-8 md:gap-0">
             <Col md={6} sm={24}>
               <Space direction="vertical" align="center">
                 <Image src="/quality.png" alt="quality" width={80} height={80} className="invert" />
@@ -164,7 +181,13 @@ export default function Home() {
             </Col>
             <Col md={6} sm={24}>
               <Space direction="vertical" align="center">
-                <Image src="/businessman.png" alt="quality" width={80} height={80} className="invert" />
+                <Image
+                  src="/businessman.png"
+                  alt="quality"
+                  width={80}
+                  height={80}
+                  className="invert"
+                />
                 <h4 className="text-sm text-white">Профессиональные консультации</h4>
                 <p className="text-xs text-white text-center">
                   Наши эксперты готовы предоставить вам советы и рекомендации по выбору и уходу за
@@ -204,7 +227,7 @@ export default function Home() {
       </Container>
 
       {/* footer */}
-      <section id="footer" className="w-full p-10 bg-gray-800">
+      <section id="footer" className="w-full p-10 bg-gray-900">
         <Container>
           <Space className="flex justify-between md:flex-row flex-col gap-4 ">
             <div className="flex items-center justify-center">
@@ -214,7 +237,13 @@ export default function Home() {
               @2023 by Islam & Beknazar. Защищено законом об авторских правах.
             </div>
             <div className="flex items-center justify-center">
-              <Button href={whatsapp} target='_blank' type="primary" size="middle" className="bg-blue-600">
+              <Button
+                href={whatsapp}
+                target="_blank"
+                type="primary"
+                size="middle"
+                className="bg-blue-600"
+              >
                 Свяжитесь с нами
               </Button>
             </div>
@@ -222,11 +251,13 @@ export default function Home() {
         </Container>
       </section>
 
-      <Button href={whatsapp} type="link" className='whatsapp-button fixed bottom-10 right-8 z-50 w-14 h-14 rounded-full p-0 m-0 hover:scale-110 active:scale-100'>
-        <Image src="/whatsapp.png" alt='whatsapp' width={50} height={50}/>
+      <Button
+        href={whatsapp}
+        type="link"
+        className="whatsapp-button fixed bottom-10 right-8 z-50 w-14 h-14 rounded-full p-0 m-0 hover:scale-110 active:scale-100"
+      >
+        <Image src="/whatsapp.png" alt="whatsapp" width={50} height={50} />
       </Button>
-
-
     </main>
   )
 }
